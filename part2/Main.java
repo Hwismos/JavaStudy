@@ -3,30 +3,15 @@ package part2;
 public class Main {
 
 	public static void main(String[] args) {
-		Animal cat = new Cat();
-		Animal dog = new Dog();
+		RemoteControlloer rc1 = new Television("석휘");
+		RemoteControlloer rc2 = new Television("유림");
+		rc1.downChannel();
+		rc2.upVolume();
 		
-		eat(cat);
-		eat(dog);
+		System.out.println(rc1.toString());
+		System.out.println(rc2.toString());
 		
-		Animal[] animalArray = new Animal[2];
-		animalArray[0] = new Cat("또복");
-		animalArray[1] = new Cat("오복");
-		
-		introduce(animalArray);
+		RemoteControlloer rcOfRadio = new Radio();
+		rcOfRadio.upVolume();
 	}
-	
-	public static void eat(Animal a) {
-		a.eat();
-		if (a instanceof Cat) {
-			((Cat)a).cute();
-		}
-	}
-	
-	public static void introduce(Animal[] arr) {
-		for (Animal animal: arr) {
-			System.out.println(animal.toString());
-		}
-	}
-
 }
