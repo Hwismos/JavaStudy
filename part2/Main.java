@@ -8,28 +8,25 @@ import java.io.*;
 public class Main {
 
 	public static void main(String[] args) {
-		try {
-			OutputStream output = new FileOutputStream("C:\\Users\\최석휘\\Desktop\\output.txt");
-			String str = "자바로 파일 입출력을 해보자!!";
-			byte[] by = str.getBytes();
-			output.write(by);		
-		} catch (Exception e) {
-			e.getStackTrace();
-		}
+		String s1 = new String("Book");
+		String s2 = new String("Book");
+		String s3 = "Book";
+		String s4 = "Book";
 		
-		try {
-			File file = new File("C:\\Users\\최석휘\\Desktop\\output.txt");
-			FileReader fr = new FileReader(file);
-			int cur = 0;
-			while ((cur = fr.read()) != -1) {
-				System.out.print((char)cur);
-			}
-			System.out.println();
-			fr.close();
-		} catch (FileNotFoundException e) {
-			e.getStackTrace();
-		} catch (IOException e) {
-			e.getStackTrace();
+		compare(s1, s2);  // s1과 s2는 별개의 객체
+		compare(s3, s4);  // s3과 s4는 동일한 객체
+		
+		s4 = s4.toUpperCase();  // toUpperCase 메소드가 새로운 String 객체를 반환
+		System.out.println(s4);  // s4는 다른 객체가 됨
+		
+		compare(s3, s4);
+	}
+	
+	public static void compare(String s1, String s2) {
+		if (s1 == s2) {
+			System.out.println("두 객체는 동일한 객체");
+		} else {
+			System.out.println("두 객체는 별개의 객체");
 		}
 	}
 }
