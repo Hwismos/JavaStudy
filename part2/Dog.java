@@ -8,8 +8,16 @@ public class Dog extends Animal{
 
 	@Override
 	public void eat() {
-		System.err.println("개가 먹는다.");
+		System.out.println("개가 먹는다.");
 	}
 	
+	public void protect() {
+		System.out.println("개가 집을 지키다.");
+	}
+
+	@Override
+	public String toString() {
+		return "Dog 객체";
+	}
 	
 }
